@@ -8,8 +8,8 @@ describe('GameStatsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [QuizMakerComponent]
-    })
+    imports: [QuizMakerComponent]
+})
       .compileComponents();
 
     fixture = TestBed.createComponent(QuizMakerComponent);

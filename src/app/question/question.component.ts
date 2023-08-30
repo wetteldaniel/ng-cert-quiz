@@ -1,10 +1,13 @@
 import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@angular/core';
 import {Question} from '../data.models';
+import { NgFor } from '@angular/common';
 
 @Component({
-  selector: 'app-question',
-  templateUrl: './question.component.html',
-  styleUrls: ['./question.component.css']
+    selector: 'app-question',
+    templateUrl: './question.component.html',
+    styleUrls: ['./question.component.css'],
+    standalone: true,
+    imports: [NgFor]
 })
 export class QuestionComponent {
 

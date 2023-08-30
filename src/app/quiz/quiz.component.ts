@@ -2,11 +2,15 @@ import {Component, inject, Input} from '@angular/core';
 import {Question} from '../data.models';
 import {QuizService} from '../quiz.service';
 import {Router} from '@angular/router';
+import { QuestionComponent } from '../question/question.component';
+import { NgFor, NgIf } from '@angular/common';
 
 @Component({
-  selector: 'app-quiz',
-  templateUrl: './quiz.component.html',
-  styleUrls: ['./quiz.component.css']
+    selector: 'app-quiz',
+    templateUrl: './quiz.component.html',
+    styleUrls: ['./quiz.component.css'],
+    standalone: true,
+    imports: [NgFor, QuestionComponent, NgIf]
 })
 export class QuizComponent {
 
