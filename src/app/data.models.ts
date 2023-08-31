@@ -1,6 +1,10 @@
-export interface Category {
+export interface ApiCategory {
   id: number;
   name: string;
+}
+
+export interface Category extends ApiCategory {
+  sub_category?: string;
 }
 
 export interface ApiQuestion {
