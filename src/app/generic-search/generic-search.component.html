@@ -1,0 +1,12 @@
+<div id="search-component">
+    <input #searchBox id="search-box" (input)="search(searchBox.value)" placeholder="{{placeholder}}"
+        (focusout)="search(null)" (focus)="search(searchBox.value)" />
+
+    <ul class=" search-result">
+        <li *ngFor="let item of filteredItems$ | async">
+            <a (click)="searchBox.value = item; valueChange.emit(item); search(null)"
+                [innerHTML]="item | bold: searchBox.value">
+            </a>
+        </li>
+    </ul>
+</div>
