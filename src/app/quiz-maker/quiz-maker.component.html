@@ -14,6 +14,13 @@
   </div>
 
 </div>
-<div class="row">
-  <app-quiz [questions]="questions$ | async"></app-quiz>
+<app-question *ngFor="let q of questions$ | async; index as i" [question]="q" (change)="userAnswers[i] = $event">
+  <button (click)="swapQuestion(i)" class="inverse" *ngIf="canSwapQuestions">
+    Change question
+  </button>
+</app-question>
+<div>
+  <button class="inverse large" *ngIf="allQuestionsAnswered()" (click)="submit()">
+    Submit
+  </button>
 </div>

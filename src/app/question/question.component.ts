@@ -1,17 +1,17 @@
-import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@angular/core';
-import {Question} from '../data.models';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Question } from '../data.models';
 import { NgFor } from '@angular/common';
 
 @Component({
-    selector: 'app-question',
-    templateUrl: './question.component.html',
-    styleUrls: ['./question.component.css'],
-    standalone: true,
-    imports: [NgFor]
+  selector: 'app-question',
+  templateUrl: './question.component.html',
+  styleUrls: ['./question.component.css'],
+  standalone: true,
+  imports: [NgFor]
 })
 export class QuestionComponent {
 
-  @Input({required: true})
+  @Input({ required: true })
   question!: Question;
   @Input()
   correctAnswer?: string;
@@ -19,9 +19,9 @@ export class QuestionComponent {
   userAnswer?: string;
 
   getButtonClass(answer: string): string {
-    if (! this.userAnswer) {
-        if (this.currentSelection == answer)
-          return "tertiary";
+    if (!this.userAnswer) {
+      if (this.currentSelection == answer)
+        return "tertiary";
     } else {
       if (this.userAnswer == this.correctAnswer && this.userAnswer == answer)
         return "tertiary";

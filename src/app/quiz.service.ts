@@ -29,9 +29,9 @@ export class QuizService {
     );
   }
 
-  createQuiz(categoryId: string, difficulty: Difficulty): Observable<Question[]> {
+  createQuiz(categoryId: string, difficulty: Difficulty, amount = "5"): Observable<Question[]> {
     return this.http.get<{ results: ApiQuestion[] }>(
-      `${this.API_URL}/api.php?amount=5&category=${categoryId}&difficulty=${difficulty.toLowerCase()}&type=multiple`)
+      `${this.API_URL}/api.php?amount=${amount}&category=${categoryId}&difficulty=${difficulty.toLowerCase()}&type=multiple`)
       .pipe(
         map(res => {
           const quiz: Question[] = res.results.map(q => (
